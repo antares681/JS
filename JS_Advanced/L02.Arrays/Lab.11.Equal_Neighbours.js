@@ -1,23 +1,22 @@
 function solve(mx){
-    let cols = Number(mx[0].length)
-    let rows = Number(mx.length)
+    const cols = Number(mx[0].length)
+    const rows = Number(mx.length)
     let counter = 0
-    for (i=0; i < rows; i++){
-        for (j = 0; j < cols; j++){
-            if (i != rows && j != cols){
+    for (let i=0; i < rows; i++){
+        for (let j=0; j < cols; j++){
+            if (i < rows-1 && j < cols){
                 if (mx[i][j] === mx[i][j+1]||mx[i][j] === mx[i+1][j]){
-                    counter +=1
+                    counter ++
                 } 
-            }else if(i == rows && j != cols){
+            }else if(i == rows && j < cols){
                 if (mx[i][j] === mx[i][j+1]){
-                    counter +=1
+                    counter ++
                 }               
-            }else if(i != rows && j == cols){
+            }else if(i < rows && j == cols){
                 if (mx[i][j] === mx[i+1][j]){
-                    counter +=1
+                    counter ++
                 }
             } 
-            // console.log(mx[i][j])
         }     
     }
     console.log(counter)
